@@ -1,29 +1,15 @@
-import { useState } from "react";
+// presentation layer of input form
 import Button from "../Button/Button";
 import TextInput from "../TextInput/TextInput";
 
-function TextInputForm({ onSubmit }) {
-
-const [value, SetValue] = useState('')
-
-function handleSubmit(event) {
-    event.preventDefault();
-    console.log("Form Submitted", value);
-    onSubmit ?. (value)  // if onSubmit is defined, call it with a value
-}
-
-function handleOnChnage(event) {
-    console.log(event.target.value);
-    SetValue(event.target.value)
-}
-
+function TextInputForm({ handleOnChnage, handleSubmit, value, type, setType }) {
 
     return (
         <form onSubmit={handleSubmit}>
             <div>
                 <TextInput 
                     label="Write a word or a phrase"
-                    type="password"
+                    type={type}
                     value={value}
                     onChange={handleOnChnage}
                 />
@@ -32,6 +18,12 @@ function handleOnChnage(event) {
                 <Button
                     text="ok"
                     buttonType={"submit"}
+                />
+                <Button
+                    onClickHandler={() => {setType(type === "password" ? "text" : "password");}}
+                    text={type === "password" ? "Show" : "Hide"}
+                    styleType="warning"
+                    buttonType={"button"}
                 />
             </div>
         </form>
