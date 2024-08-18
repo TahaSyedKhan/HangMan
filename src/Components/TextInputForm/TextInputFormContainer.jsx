@@ -13,14 +13,14 @@ function handleSubmit(event) {
     onSubmit ?. (value)  // if onSubmit is defined, call it with a value
 }
 
-function handleOnChnage(event) {
+function handleOnChange(event) {
     console.log(event.target.value);
     SetValue(event.target.value)
 }
 return (
     // calling presentation layer
     <TextInputForm
-        handleOnChnage={handleOnChnage}
+        handleOnChange={handleOnChange}
         handleSubmit={handleSubmit}
         value={value}
         type={type}
