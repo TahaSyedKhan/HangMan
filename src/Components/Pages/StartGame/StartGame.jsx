@@ -11,7 +11,7 @@ function StartGame() {
 
     return (
         <div>
-            <h1>Start Game</h1>
+            <h1 className="text-3xl underline text-center">Welcome to HangMan</h1>
             <TextInputFormContainer onSubmit={handleSubmit} />
         </div>
     );
